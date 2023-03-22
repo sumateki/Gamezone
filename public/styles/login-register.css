@@ -1,0 +1,269 @@
+
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html{
+            font-size: 10px;
+        }
+
+        body{
+            background-image: url('../images/background.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            object-fit: cover;
+            background-attachment: fixed;
+            background-color: black;
+            z-index: 0;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+        }
+
+
+        section{
+            background-color:rgba(0, 0, 0, 0.5);
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            width:34rem;
+            border:2px solid rgb(244, 241, 241);
+            border-radius: 1.2rem;
+            box-shadow: 1px 2px 8px 10px rgba(236, 231, 231, 0.2);
+            z-index: 2; 
+        }
+
+    
+
+
+        .login, .register{
+            padding: 3rem;
+        }
+
+        .login h2, .register h2{
+            font-size :3rem;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            padding:1.5rem;
+            color:rgb(232, 210, 11);
+            border-bottom: 0.1rem solid rgb(237, 234, 234);
+        }
+
+        .login form, .register form{
+            margin-top:3rem;
+        }
+
+        .login form .input, .register form .input{
+            display:block;
+            border:none;
+            color:white;
+            background-color: transparent;
+            border-radius: 0.8rem;
+            border-bottom: 0.16rem ridge rgb(202, 192, 192);
+            font-size: 1.6rem;
+            outline: none;
+            width: 100%;
+            padding:1rem;
+            margin:1.5rem auto;
+        }
+
+        .login form .input::placeholder,.register form .input::placeholder{
+            color:white;
+        }
+
+        .login form .input:hover,.register form .input:hover{
+            border-color: rgb(57, 3, 251);
+        }
+
+        
+
+        .login form a{
+            text-decoration: none;
+            font-size: 1.4rem;
+            display:inline-block;
+            font-family: 'Poppins', sans-serif;
+            margin: 1rem 0rem 1rem 1rem;
+            font-weight: 700;
+            color: rgb(11, 245, 50);
+            transition: 1s;
+        }
+
+        .login form a:hover{
+            color:red;
+        }
+
+
+
+        .login form button,.register form button{
+            border:none;
+            padding: 1rem;
+            display:block;
+            width: 80%;
+            margin:auto;
+            border-radius: 2rem;
+            background-color: rgb(81, 81, 208);
+            color:white;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .login form button:hover, .register form button:hover{
+            background-color: green;
+            box-shadow: 1px 2px 4px 4px rgba(28, 233, 13, 0.2);
+        }
+
+        .login p, .register p{
+            font-size: 1.4rem;
+            font-family:"Poppins",sans-serif;
+            text-align: center;
+            margin-top: 2rem;
+            color:white;
+        }
+
+        .login p a, .register p a{
+            text-decoration: none;
+            font-weight: 700;
+            color:red;
+            transition: 1s;
+        }
+
+        .login p a:hover, .register p a:hover{
+            color:rgb(232, 210, 11);
+        }
+
+        .control.error .input{
+            border-color: red;
+        }
+
+        .control.success .input{
+            border-color: rgb(133, 247, 133);
+        }
+
+        .control .error{
+            color:rgb(244, 86, 86);
+            font-size: 11px;
+            margin:0;
+        }
+
+
+
+
+        /* Responsive */
+
+        @media (min-width:481px) and (max-width: 720px) {
+            body {
+                background-image: url('../images/background-tablet.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                object-fit: cover;
+                background-position: 20% 50%;
+
+            }
+
+
+            body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            
+        }
+
+            section{
+                width:31.5rem;
+            }
+
+            .login, .register{
+                padding:2rem;
+            }
+
+            .login h2, .register h2{
+                font-size: 2.8rem;
+                padding: 2rem;
+            }
+
+            .login form a, .login form .input,.register form a, .register form .input{
+                font-size: 1.4rem;
+                margin: 1.5rem 1rem 1.5rem 0.5rem;
+            }
+
+            .login p,.register p{
+                margin-top: 1.5rem;
+                font-size: 1.4rem;
+            }
+
+            .login form button,.register form button{
+                margin:0 auto;
+                font-size: 1.4rem;
+                width:70%;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            body {
+                background-image: url('../images/background-mobile.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-position: 10% 50%;
+                object-fit: cover;
+                z-index: 0;
+            }
+
+            body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+        }
+
+            section{
+                width:25rem;
+            }
+
+            .login, .register{
+                padding:1.5rem;
+            }
+
+            .login h2,.register h2{
+                font-size: 2.1rem;
+                padding: 1rem;
+            }
+
+            .login form a, .login form .input,.register form a, .register form .input{
+                font-size: 1.2rem;
+                margin: 1rem 0rem 1rem 1rem;
+            }
+
+            .login p, .register p{
+                margin-top: 1rem;
+                font-size: 1.2rem;
+            }
+
+            .login form button,.register form button{
+                margin:0 auto;
+                font-size: 1.2rem;
+                width:60%;
+            }
+        }
+        

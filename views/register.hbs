@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./styles/login-register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-CJ8DjKX9vijLLt3eBt2Gd+EgOdTtCvz0ZsRgiZPb8+vx9XZvAaOJ7x+c0TR8Ww7LOjvJr/aEL7CC91+nwn/VA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/9bb6241c8c.js" defer crossorigin="anonymous"></script>
+    <script src="./scripts/validate.js" defer></script>
+    <link rel="shortcut icon" href="./images/title.png" type="image/icon">
+    <link rel="stylesheet" href="./styles/nav.css">
+</head>
+<body>
+    <div id="navbar">
+        <nav>
+            <i class="fa-solid fa-gamepad"></i>
+            <h2>Gamezone</h2>
+            <ul>
+                <li><a href="./login">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section>
+        <div class="register">
+            <h2>Register</h2>
+            <form action="./login">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Player Name" name="playername">
+                    <span class="error"></span>
+                </div>
+                <div class="control">
+                    <input class="input" type="text" placeholder="Email" name="email">
+                    <span class="error"></span>
+                </div>
+                <div class="control">
+                    <input class="input" type="password" placeholder="Password" name="password">
+                    <span class="error"></span>
+                </div>
+                <div class="control">
+                    <input class="input" type="password" placeholder="Confirm Password" name="cpassword">
+                    <span class="error"></span>
+                </div>
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account?<a href="./login"> Login</a></p>
+        </div>
+    </section>
+
+    
+</body>
+</html>
