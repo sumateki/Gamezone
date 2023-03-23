@@ -1,6 +1,6 @@
 const express= require('express')
 const router= express.Router()
-const User= require('../models/UserDetails')
+const User= require('../models/schema')
 
 //patch request for updtig data
 router.patch('/:id', async(req,res)=>

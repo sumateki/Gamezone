@@ -1,11 +1,14 @@
 const express= require('express')
 const router= express.Router()
 const jwt= require('jsonwebtoken')
+// const mongoose= require('mongoose')
 const User= require('../models/schema')
 
 //create jwt secret --- hardcoding jwt secret here insted of creating .env file
 const JWT_SECRET = 'some super secret..'
 
+//db conn
+// const db=mongoose.Connection
 
 //post request for creating data
 router.post('/abc', async(req,res)=>
@@ -62,9 +65,11 @@ router.post('/login', async(req,res)=>
         })
 
 //forgot-password
-router.post('/forgot-password', (req, res, next)=>
+router.post('/forgot-password', async(req, res, next)=>
 {
     const {email} = req.body
+    // const User= await db.collection("users").findOne({email:email})
+    // console.log(User)
     let User= {
         id: req.params.id,
         email: req.body.email,
@@ -79,14 +84,14 @@ router.post('/forgot-password', (req, res, next)=>
 
     //if user exists then create one time link for some time(10min)
     //generate new scret
-    const secret= JWT_SECRET + User.password
+    // const secret= JWT_SECRET + User.password
     //create payload -- this payload stored inside jwt token
     const payload=
     {
         email: User.email,
         id: req.params.id
     }
-    const token= jwt.sign(payload, secret, {expiresIn: '15m'})
+    const token= jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '15m'})
     const link= `http://localhost:8000/reset-password/${User.id}/${token}`
     console.log(link)
     res.send('Please open your console to access password reset link..')
@@ -97,11 +102,13 @@ router.post('/forgot-password', (req, res, next)=>
 router.post('/reset-password/:id/:token', (req, res, next)=>
 {
     const {id, token}= req.params
+    
     let User= {
         id: req.params.id,
         email: req.body.email,
         password: req.body.password
     }
+    
     //extract password 
     const {password}= req.body
     //check if this id exists in db
@@ -113,10 +120,11 @@ router.post('/reset-password/:id/:token', (req, res, next)=>
 
     const secret= JWT_SECRET + User.password
     try{
-        const payload= jwt.verify(token, secret)
+        const payload= jwt.verify(token, process.env.JWT_SECRET)
+        console.log(payload);
         User.password= password
         res.send(User)
-        console.log(payload)
+       
     }
     catch(err)
     {
